@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prácticas de JavaScript</title>
+  </head>
+  <body>
+    <h1>Prácticas de JavaScript</h1>
+
+    <div class="function-container">
+      <h2>Palíndromo</h2>
+      <label for="palindromo-input">Ingrese un número:</label>
+      <input type="number" id="palindromo-input" />
+      <button onclick="testPalindromo()">Probar</button>
+      <div id="palindromo-result" class="result"></div>
+    </div>
+
+    <div class="function-container">
+      <h2>Fibonacci</h2>
+      <label for="fibonacci-input">Ingrese la cantidad de números:</label>
+      <input type="number" id="fibonacci-input" />
+      <button onclick="testFibonacci()">Probar</button>
+      <div id="fibonacci-result" class="result"></div>
+    </div>
+
+    <div class="function-container">
+      <h2>Rango Numérico</h2>
+      <label for="rango-input">Ingrese un número:</label>
+      <input type="number" id="rango-input" />
+      <button onclick="testRangoNumerico()">Probar</button>
+      <div id="rango-result" class="result"></div>
+    </div>
+
+    <div class="function-container">
+      <h2>Calificación</h2>
+      <label for="calificacion-input">Ingrese una calificación (0-10):</label>
+      <input type="number" id="calificacion-input" min="0" max="10" />
+      <button onclick="testCalificacion()">Probar</button>
+      <div id="calificacion-result" class="result"></div>
+    </div>
+
+    <div class="function-container">
+      <h2>Mayor de 3</h2>
+      <label for="mayor-input1">Número 1:</label>
+      <input type="number" id="mayor-input1" />
+      <label for="mayor-input2">Número 2:</label>
+      <input type="number" id="mayor-input2" />
+      <label for="mayor-input3">Número 3:</label>
+      <input type="number" id="mayor-input3" />
+      <button onclick="testMayorDe3()">Probar</button>
+      <div id="mayor-result" class="result"></div>
+    </div>
+
+    <div class="function-container">
+      <h2>Número Par o Impar</h2>
+      <label for="parimpar-input">Ingrese un número:</label>
+      <input type="number" id="parimpar-input" />
+      <button onclick="testParoImpar()">Probar</button>
+      <div id="parimpar-result" class="result"></div>
+    </div>
+
+    <script type="module">
+      import {
+        palindromo,
+        fibonacci,
+        RangoNumérico,
+        calificacion,
+        MayorDe3,
+        numeroParoImpar,
+      } from "./funciones.js";
+
+      window.testPalindromo = function () {
+        const input = document.getElementById("palindromo-input").value;
+        const result = palindromo(parseInt(input));
+        document.getElementById("palindromo-result").textContent = result
+          ? "Es palíndromo"
+          : "No es palíndromo";
+      };
+
+      window.testFibonacci = function () {
+        const input = document.getElementById("fibonacci-input").value;
+        const result = fibonacci(parseInt(input));
+        document.getElementById("fibonacci-result").textContent =
+          result.join(", ");
+      };
+
+      window.testRangoNumerico = function () {
+        const input = document.getElementById("rango-input").value;
+        const result = RangoNumérico(parseInt(input));
+        document.getElementById("rango-result").textContent = result;
+      };
+
+      window.testCalificacion = function () {
+        const input = document.getElementById("calificacion-input").value;
+        const result = calificacion(parseInt(input));
+        document.getElementById("calificacion-result").textContent = result;
+      };
+
+      window.testMayorDe3 = function () {
+        const input1 = document.getElementById("mayor-input1").value;
+        const input2 = document.getElementById("mayor-input2").value;
+        const input3 = document.getElementById("mayor-input3").value;
+        const result = MayorDe3(
+          parseInt(input1),
+          parseInt(input2),
+          parseInt(input3)
+        );
+        document.getElementById("mayor-result").textContent = result;
+      };
+
+      window.testParoImpar = function () {
+        const input = document.getElementById("parimpar-input").value;
+        const result = numeroParoImpar(parseInt(input));
+        document.getElementById("parimpar-result").textContent = result;
+      };
+    </script>
+  </body>
+</html>
